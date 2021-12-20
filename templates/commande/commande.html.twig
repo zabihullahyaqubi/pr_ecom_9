@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommandeController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<h4 class="text-center">Liste des commande</h4>
+<a href="{{ path('commande' , { 'livraison' : true }) }}" class="btn btn-primary">Commandes Livrées</a>
+<a href="{{ path('commande' , { 'livraison' : false }) }}" class="btn btn-primary">Commandes Non livrées</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">User</th>
+      <th scope="col">Date commande</th>
+      <th scope="col">adresse</th>
+      <th scope="col">Total</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in commandes %}
+    <tr>
+      <th scope="row">{{ article.id }}</th>
+      <td>{{ article.user.nom }}</td>
+      <td>{{ article.datecommande.format('Y/m/d')  }}</td>
+      <td>{{ article.adresse }}</td>
+      <td>{{ article.total }}</td>
+      <td>{{ article.status }}</td>
+
+      <td><a class="btn mb-1 btn-primary" href="{{ path('voir_detail_commande' , { 'id' : article.id }) }}">Voir</a></td>
+    </tr>
+      
+  {% endfor %}
+    
+   
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

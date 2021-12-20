@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *, html, body  {
+            padding: 0;
+            margin: 0;
+        }
+
+        .d--flex{
+            display: flex;
+            flex-direction: row;
+        }
+        .pdd-l{
+            padding-right: .8rem;
+        }
+        .box-email{
+            padding: 2rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .email-container{
+            padding: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+<div class="email-container">
+    <div class="box-email">
+        <div class="mb-3">
+            <div class="d--flex" style="flex-direction: row">
+                <h6 class="pdd-l">Nom: </h6>
+                <div>{{ nom }}</div>
+            </div>
+            <div class="d--flex">
+                <h6 class="pdd-l">Email: </h6>
+                <div>{{ userEmail }}</div>
+            </div>
+            <div class="d--flex">
+                <h6 class="pdd-l">Sujet: </h6>
+                <div>{{ sujet }}</div>
+            </div>
+        </div>
+        <div>
+            <h5>Message:</h5>
+        </div>
+        <div>
+            {{ message }}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

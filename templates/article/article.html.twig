@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+<h4 class="text-center">Liste des articles</h4>
+<a href="{{ path('new_article')}}" class="btn btn-primary">Ajouter article</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Marque</th>
+      <th scope="col">Ref</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">image</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in liste_article %}
+    <tr>
+      <th scope="row">{{ article.id }}</th>
+      <td>{{ article.name }}</td>
+      <td>{{ article.marque  }}</td>
+      <td>{{ article.ref }}</td>
+      <td>{{ article.quantity }}</td>
+      <td> <img src="{{ asset('images/' ~ article.image ) }}" alt="" style="width: 50px"></td>
+        <td><a href="{{ path('new_article' , { 'id' : article.id }) }}"><i class="fas fa-edit"></i></a></td>
+        <td><a href="{{ path('delete_article' , { 'id' : article.id }) }}"><i class="fas fa-trash me-2" style="color: red"></i></i></a></td>
+      <td><a class="btn mb-1 btn-primary" href="{{ path('show_article' , { 'id' : article.id }) }}">Voir</a></td>
+    </tr>
+      
+  {% endfor %}
+    
+   
+  </tbody>
+</table>
+</div>
+
+
+{% endblock %}

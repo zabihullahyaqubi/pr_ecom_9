@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+   {% if form.vars['value'].id is not null %}
+            <h4 class="text-center">Modifier un article</h4>
+
+    {% else %}
+             <h4 class="text-center">Ajouter un article</h4>
+   {% endif %}
+
+
+
+
+
+<div class="row">
+
+  <div class="col-8">
+      {{ form_start(form)}}
+      {{ form_end(form)}}
+  </div>
+  <div class="col-4">
+      {% if form is defined %}
+
+         <h6>Image actuel</h6>
+         <img src="{{ asset('images/' ~ form.vars['value'].image)}}" alt="" class="img-thumbnail">
+ 
+
+      {% endif %}
+  </div>
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

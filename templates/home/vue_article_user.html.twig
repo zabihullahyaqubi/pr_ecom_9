@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles!{% endblock %}
+
+{% block body %}
+<div class="container">
+<h4>Détail article</h4>
+<div class="row">
+<div class="col-12 col-sm-6">
+ <img src="{{ asset('images/' ~ article.image )}}" alt="fdsfqs" class="img-thumbnail" style="width : 700px">
+ 
+
+</div>
+<div class="col-12 col-sm-6">
+ <p>Nom de l'article : {{ article.name}}</p>
+ <p>Marque  de l'article : {{ article.marque}}</p>
+ <p>Taille de l'article : {{ article.taille}}</p>
+ <p>Description de l'article : {{ article.description}}</p>
+ <p>Prix de l'article : {{ article.Prix}} €</p>
+ 
+ <p>Ref de l'article : {{ article.ref}}</p>
+ <p>Quantité : {{ article.quantity}}</p>
+
+ <a href="{{ path('add_panier' , { 'id' : article.id }) }}" class="btn btn-info">Ajouter aux panier</a>
+</div>
+
+</div>
+
+ 
+ <hr>
+ 
+
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+ <img src="{{ asset('images/acc.jpg') }}" alt="rtrt" class="w-100">
+ <hr>
+ <h1 class="text-center" style="font-family: 'Palette Mosaic', cursive, sherif;font-weight: bold;
+                    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);">Bienvenue dans ma boutique</h1>
+
+ <hr>
+ {% for item in liste_category %}
+
+   <a href="{{ path('vue_article' , { 'category' : item.name }) }}" class="btn btn-primary">{{ item.name }}</a>
+    
+ {% endfor %}
+   <div class="row">
+
+{% for article in liste_article %} 
+
+   <div class="col-12 col-sm-4 mt-2">
+     <div class="card" style="width: 100%;height: 100%" >
+       <img src="{{ asset('images/' ~ article.image) }}" class="card-img-top" alt="...">
+       <div class="card-body">
+          <h5 class="card-title">{{ article.name }}</h5>
+          <p class="card-text">{{ article.description | slice(0,80) }}</p>
+          <a href="{{ path('show_article_user', {'id' : article.id }) }}" class="btn btn-success">Voir détail</a>
+        </div>
+     </div>
+    </div>
+    
+     
+ {% endfor %}
+
+</div>
+
+
+ </div>
+ 
+{% endblock %}

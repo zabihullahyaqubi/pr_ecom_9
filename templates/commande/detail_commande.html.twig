@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommandeController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<h4 class="text-center">Detail commande</h4>
+ 
+
+ 
+ <p>num de commande :{{  commande.id }}</p>
+ <p>Cliant : {{  commande.user.nom }} - {{ commande.user.prenom }}</p>
+ <p> Date de la commande  : {{  commande.dateCommande.format('Y/m/d') }}</p>
+ <p>Adresse de livraison : {{  commande.Adresse }}</p>
+ <p>Total de la commande : {{  commande.total }}</p>
+
+ {% if commande.status == true %}
+     <p>Commande livrée</p>
+
+     {% else %}
+      <p>Commande non livrée</p>
+
+ {% endif %}
+  <td><a href="{{ path('edit_status_commande' , { 'id' : commande.id }) }}" class="btn btn-primary">Changer le status livraison</a></td>
+
+ <hr>
+ <h5>Article commandés</h5>
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nom de L'article</th>
+      <th scope="col">Référence</th>
+      <th scope="col">Quantité</th>
+      <th scope="col">Prix </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in commande.DetailCommandes %}
+    <tr>
+      <th scope="row">{{ article.id }}</th>
+      <td>{{ article.articleName }}</td>
+      <td>{{ article.ref  }}</td>
+      <td>{{ article.quantity }}</td>
+      <td>{{ article.Prix }}</td>
+    
+    
+    </tr>
+      
+  {% endfor %}
+    
+   
+  </tbody>
+</table>
+
+</div>
+
+
+{% endblock %}

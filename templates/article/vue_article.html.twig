@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+<div class="container">
+
+ <h4>Détail article</h4>
+ <p>Nom de l'article : {{ article.name}}</p>
+ <p>Marque  de l'article : {{ article.marque}}</p>
+ <p>Taille de l'article : {{ article.taille}}</p>
+ <p>Description de l'article : {{ article.description}}</p>
+ <p>Prix de l'article : {{ article.Prix}} €</p>
+ 
+ <p>Ref de l'article : {{ article.ref}}</p>
+ <p>Quantité : {{ article.quantity}}</p>
+ <p>TVA : {{ article.tva.tauxTva}} </p>
+ <hr>
+   <a href="{{ path('new_article' , { 'id' : article.id }) }}" class="btn btn-secondary m-1">Modifier article</a>
+   <a href="{{ path('delete_article' , { 'id' : article.id }) }}" class="btn btn-danger m-1">Supprimer article</a>
+   <p><img src="{{ asset('images/' ~ article.image)}}" alt="" class="img-thumbnail " style="width: 600px"></p>
+
+
+ </div>
+
+
+
+{% endblock %}
